@@ -6,6 +6,8 @@
 // allocated to that event. Deposits establish cost basis and are not
 // themselves taxable events.
 
+import type { Activity } from '../data'
+
 export type InvestmentEventType = 'deposit' | 'withdrawal' | 'distribution'
 
 export interface InvestmentEvent {
@@ -30,11 +32,57 @@ export interface QuarterlyTaxLine {
   events: InvestmentEvent[]
 }
 
-export function getQuarter(dateStr: string): { year: number; quarterNumber: 1 | 2 | 3 | 4 } {
+export interface QuarterlyTaxReport extends Array<QuarterlyTaxLine> {
+  skippedCount: number
+  skippedEvents: InvestmentEvent[]
+}
+
+export interface TaxReportSummary {
+  lines: QuarterlyTaxLine[]
+  skippedCount: number
+  skippedEvents: InvestmentEvent[]
+}
+
+/** Maps portfolio activity feed items into investment events for tax reporting. */
+export function activityToInvestmentEvents(activity: Activity[]): InvestmentEvent[] {
+  const events: InvestmentEvent[] = []
+
+  for (const item of activity) {
+    const kind = item.kind.toLowerCase()
+    const type = kind.includes('deposit')
+      ? 'deposit'
+      : kind.includes('withdraw')
+        ? 'withdrawal'
+        : kind.includes('distribution') || kind.includes('yield') || kind.includes('claim')
+          ? 'distribution'
+          : null
+    if (!type) continue
+
+    const amount = typeof item.amount === 'string' ? item.amount.replace(/[^0-9.-]+/g, '') : item.amount
+    const amountUSD = Math.abs(Number.parseFloat(String(amount))) || 0
+
+    events.push({
+      id: item.hash || `${type}-${item.when}-${amountUSD}-${events.length}`,
+      projectName: 'Heliobond Vault',
+      date: item.when,
+      type,
+      amountUSD,
+      costBasisUSD: type === 'withdrawal' ? amountUSD : 0,
+    })
+  }
+
+  return events
+}
+
+export function getQuarter(dateStr: string): { year: number; quarterNumber: 1 | 2 | 3 | 4 } | null {
+  if (!dateStr || typeof dateStr !== 'string') return null
   const date = new Date(dateStr)
+  if (Number.isNaN(date.getTime())) return null
   const month = date.getUTCMonth() // 0-11
   const quarterNumber = (Math.floor(month / 3) + 1) as 1 | 2 | 3 | 4
-  return { year: date.getUTCFullYear(), quarterNumber }
+  const year = date.getUTCFullYear()
+  if (Number.isNaN(year) || Number.isNaN(quarterNumber)) return null
+  return { year, quarterNumber }
 }
 
 function realizedGain(event: InvestmentEvent): number {
@@ -44,11 +92,18 @@ function realizedGain(event: InvestmentEvent): number {
 
 export { realizedGain }
 
-export function computeQuarterlyTaxReport(events: InvestmentEvent[]): QuarterlyTaxLine[] {
+export function computeQuarterlyTaxReport(events: InvestmentEvent[]): QuarterlyTaxReport {
   const byQuarter = new Map<string, QuarterlyTaxLine>()
+  const skippedEvents: InvestmentEvent[] = []
 
   for (const event of events) {
-    const { year, quarterNumber } = getQuarter(event.date)
+    const quarterInfo = getQuarter(event?.date)
+    if (!quarterInfo) {
+      skippedEvents.push(event)
+      continue
+    }
+
+    const { year, quarterNumber } = quarterInfo
     const key = `${year}-Q${quarterNumber}`
 
     if (!byQuarter.has(key)) {
@@ -74,9 +129,35 @@ export function computeQuarterlyTaxReport(events: InvestmentEvent[]): QuarterlyT
     line.realizedGainUSD += realizedGain(event)
   }
 
-  return Array.from(byQuarter.values()).sort((a, b) =>
+  const result = Array.from(byQuarter.values()).sort((a, b) =>
     a.year !== b.year ? a.year - b.year : a.quarterNumber - b.quarterNumber,
-  )
+  ) as QuarterlyTaxReport
+
+  Object.defineProperties(result, {
+    skippedCount: {
+      value: skippedEvents.length,
+      enumerable: false,
+      writable: true,
+      configurable: true,
+    },
+    skippedEvents: {
+      value: skippedEvents,
+      enumerable: false,
+      writable: true,
+      configurable: true,
+    },
+  })
+
+  return result
+}
+
+export function computeQuarterlyTaxReportDetailed(events: InvestmentEvent[]): TaxReportSummary {
+  const lines = computeQuarterlyTaxReport(events)
+  return {
+    lines,
+    skippedCount: lines.skippedCount,
+    skippedEvents: lines.skippedEvents,
+  }
 }
 
 const NUMERIC = /^-?\d+(?:\.\d+)?$/

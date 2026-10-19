@@ -3,8 +3,8 @@ import { describe, expect, it } from 'vitest'
 import NotFound from './not-found'
 
 describe('NotFound page', () => {
-  it('renders 404 message and Back to Heliobond link with primary button tokens (#709)', () => {
-    render(<NotFound />)
+  it('renders 404 message and Back to Heliobond link with primary button tokens (#709)', async () => {
+    render(await NotFound())
     expect(screen.getByRole('heading', { name: 'Page not found' })).toBeInTheDocument()
     const link = screen.getByRole('link', { name: 'Back to Heliobond' })
     expect(link).toBeInTheDocument()
