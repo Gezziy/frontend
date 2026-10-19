@@ -39,9 +39,7 @@
           "type_": "i128"
         }
       ],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -55,9 +53,7 @@
           "type_": "vec"
         }
       ],
-      "outputs": [
-        "vec"
-      ]
+      "outputs": ["vec"]
     }
   },
   {
@@ -76,9 +72,7 @@
           "type_": "i128"
         }
       ],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -86,9 +80,7 @@
       "doc": "",
       "name": "claim",
       "inputs": [],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -202,9 +194,7 @@
           "type_": "u32"
         }
       ],
-      "outputs": [
-        "udt"
-      ]
+      "outputs": ["udt"]
     }
   },
   {
@@ -237,9 +227,7 @@
           "type_": "address"
         }
       ],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -253,9 +241,7 @@
           "type_": "u32"
         }
       ],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -263,9 +249,7 @@
       "doc": "",
       "name": "max_hbs_supply",
       "inputs": [],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -345,9 +329,7 @@
       "doc": "",
       "name": "get_multisig_admin",
       "inputs": [],
-      "outputs": [
-        "tuple"
-      ]
+      "outputs": ["tuple"]
     }
   },
   {
@@ -355,9 +337,7 @@
       "doc": "",
       "name": "get_expected_returns",
       "inputs": [],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -365,9 +345,7 @@
       "doc": "",
       "name": "total_assets",
       "inputs": [],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -381,9 +359,7 @@
           "type_": "i128"
         }
       ],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -397,9 +373,7 @@
           "type_": "i128"
         }
       ],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -407,9 +381,7 @@
       "doc": "",
       "name": "share_price",
       "inputs": [],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -423,9 +395,7 @@
           "type_": "i128"
         }
       ],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -439,9 +409,7 @@
           "type_": "i128"
         }
       ],
-      "outputs": [
-        "tuple"
-      ]
+      "outputs": ["tuple"]
     }
   },
   {
@@ -455,9 +423,7 @@
           "type_": "address"
         }
       ],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -471,9 +437,7 @@
           "type_": "address"
         }
       ],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -481,9 +445,7 @@
       "doc": "",
       "name": "get_utilization_bps",
       "inputs": [],
-      "outputs": [
-        "u32"
-      ]
+      "outputs": ["u32"]
     }
   },
   {
@@ -497,9 +459,7 @@
           "type_": "address"
         }
       ],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -513,9 +473,7 @@
           "type_": "address"
         }
       ],
-      "outputs": [
-        "udt"
-      ]
+      "outputs": ["udt"]
     }
   },
   {
@@ -523,9 +481,7 @@
       "doc": "",
       "name": "insurance_fund_balance",
       "inputs": [],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -533,9 +489,7 @@
       "doc": "",
       "name": "accepted_asset",
       "inputs": [],
-      "outputs": [
-        "address"
-      ]
+      "outputs": ["address"]
     }
   },
   {
@@ -562,9 +516,7 @@
       "doc": "",
       "name": "get_management_fee_bps",
       "inputs": [],
-      "outputs": [
-        "u32"
-      ]
+      "outputs": ["u32"]
     }
   },
   {
@@ -580,9 +532,7 @@
       "doc": "",
       "name": "is_trading_enabled",
       "inputs": [],
-      "outputs": [
-        "bool"
-      ]
+      "outputs": ["bool"]
     }
   },
   {
@@ -609,9 +559,7 @@
       "doc": "",
       "name": "get_min_credit_quality",
       "inputs": [],
-      "outputs": [
-        "u32"
-      ]
+      "outputs": ["u32"]
     }
   },
   {
@@ -619,9 +567,7 @@
       "doc": "",
       "name": "get_min_green_impact",
       "inputs": [],
-      "outputs": [
-        "u32"
-      ]
+      "outputs": ["u32"]
     }
   },
   {
@@ -643,9 +589,7 @@
       "doc": "",
       "name": "get_registry",
       "inputs": [],
-      "outputs": [
-        "address"
-      ]
+      "outputs": ["address"]
     }
   },
   {
@@ -653,9 +597,7 @@
       "doc": "",
       "name": "get_hbs_token_info",
       "inputs": [],
-      "outputs": [
-        "udt"
-      ]
+      "outputs": ["udt"]
     }
   },
   {
@@ -779,9 +721,7 @@
           "type_": "u64"
         }
       ],
-      "outputs": [
-        "u64"
-      ]
+      "outputs": ["u64"]
     }
   },
   {
@@ -817,9 +757,7 @@
       "doc": "",
       "name": "flash_loan_fee",
       "inputs": [],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -884,9 +822,7 @@
       "doc": "",
       "name": "carbon_credit_price",
       "inputs": [],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -905,9 +841,7 @@
           "type_": "i128"
         }
       ],
-      "outputs": [
-        "udt"
-      ]
+      "outputs": ["udt"]
     }
   },
   {
@@ -931,9 +865,7 @@
           "type_": "i128"
         }
       ],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -971,9 +903,7 @@
           "type_": "address"
         }
       ],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -995,9 +925,7 @@
       "doc": "",
       "name": "max_transaction_amount",
       "inputs": [],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -1030,9 +958,7 @@
           "type_": "u64"
         }
       ],
-      "outputs": [
-        "udt"
-      ]
+      "outputs": ["udt"]
     }
   },
   {
@@ -1051,9 +977,7 @@
           "type_": "u64"
         }
       ],
-      "outputs": [
-        "vec"
-      ]
+      "outputs": ["vec"]
     }
   },
   {
@@ -1069,9 +993,7 @@
       "doc": "",
       "name": "get_latest_snapshot",
       "inputs": [],
-      "outputs": [
-        "udt"
-      ]
+      "outputs": ["udt"]
     }
   },
   {
@@ -1079,9 +1001,7 @@
       "doc": "",
       "name": "export_regulatory_data",
       "inputs": [],
-      "outputs": [
-        "udt"
-      ]
+      "outputs": ["udt"]
     }
   },
   {
@@ -1089,9 +1009,7 @@
       "doc": "",
       "name": "compact_storage",
       "inputs": [],
-      "outputs": [
-        "u32"
-      ]
+      "outputs": ["u32"]
     }
   },
   {
@@ -1115,9 +1033,7 @@
       "doc": "",
       "name": "is_paused",
       "inputs": [],
-      "outputs": [
-        "bool"
-      ]
+      "outputs": ["bool"]
     }
   },
   {
@@ -1139,9 +1055,7 @@
       "doc": "",
       "name": "get_emergency_admin",
       "inputs": [],
-      "outputs": [
-        "option"
-      ]
+      "outputs": ["option"]
     }
   },
   {
@@ -1177,9 +1091,7 @@
       "doc": "",
       "name": "health_check",
       "inputs": [],
-      "outputs": [
-        "udt"
-      ]
+      "outputs": ["udt"]
     }
   },
   {
@@ -1187,9 +1099,7 @@
       "doc": "",
       "name": "state_version",
       "inputs": [],
-      "outputs": [
-        "u32"
-      ]
+      "outputs": ["u32"]
     }
   },
   {
@@ -1197,9 +1107,7 @@
       "doc": "",
       "name": "stored_state_version",
       "inputs": [],
-      "outputs": [
-        "u32"
-      ]
+      "outputs": ["u32"]
     }
   },
   {
@@ -1213,9 +1121,7 @@
           "type_": "u32"
         }
       ],
-      "outputs": [
-        "u32"
-      ]
+      "outputs": ["u32"]
     }
   },
   {

@@ -63,9 +63,7 @@
           "type_": "bytes_n"
         }
       ],
-      "outputs": [
-        "u32"
-      ]
+      "outputs": ["u32"]
     }
   },
   {
@@ -79,9 +77,7 @@
           "type_": "u32"
         }
       ],
-      "outputs": [
-        "udt"
-      ]
+      "outputs": ["udt"]
     }
   },
   {
@@ -89,9 +85,7 @@
       "doc": "",
       "name": "total_projects",
       "inputs": [],
-      "outputs": [
-        "u32"
-      ]
+      "outputs": ["u32"]
     }
   },
   {
@@ -110,9 +104,7 @@
           "type_": "bytes_n"
         }
       ],
-      "outputs": [
-        "bool"
-      ]
+      "outputs": ["bool"]
     }
   },
   {
@@ -198,9 +190,7 @@
           "type_": "u32"
         }
       ],
-      "outputs": [
-        "u64"
-      ]
+      "outputs": ["u64"]
     }
   },
   {
@@ -214,9 +204,7 @@
           "type_": "u32"
         }
       ],
-      "outputs": [
-        "vec"
-      ]
+      "outputs": ["vec"]
     }
   },
   {
@@ -254,9 +242,7 @@
           "type_": "u32"
         }
       ],
-      "outputs": [
-        "bool"
-      ]
+      "outputs": ["bool"]
     }
   },
   {
@@ -264,9 +250,7 @@
       "doc": "",
       "name": "get_all_projects",
       "inputs": [],
-      "outputs": [
-        "vec"
-      ]
+      "outputs": ["vec"]
     }
   },
   {
@@ -285,9 +269,7 @@
           "type_": "u32"
         }
       ],
-      "outputs": [
-        "vec"
-      ]
+      "outputs": ["vec"]
     }
   },
   {
@@ -311,9 +293,7 @@
           "type_": "u64"
         }
       ],
-      "outputs": [
-        "u32"
-      ]
+      "outputs": ["u32"]
     }
   },
   {
@@ -356,9 +336,7 @@
           "type_": "u32"
         }
       ],
-      "outputs": [
-        "bool"
-      ]
+      "outputs": ["bool"]
     }
   },
   {
@@ -372,9 +350,7 @@
           "type_": "u32"
         }
       ],
-      "outputs": [
-        "udt"
-      ]
+      "outputs": ["udt"]
     }
   },
   {
@@ -422,9 +398,7 @@
           "type_": "address"
         }
       ],
-      "outputs": [
-        "i128"
-      ]
+      "outputs": ["i128"]
     }
   },
   {
@@ -536,9 +510,7 @@
       "doc": "",
       "name": "get_multisig_admin",
       "inputs": [],
-      "outputs": [
-        "tuple"
-      ]
+      "outputs": ["tuple"]
     }
   },
   {
@@ -552,9 +524,7 @@
           "type_": "u32"
         }
       ],
-      "outputs": [
-        "u32"
-      ]
+      "outputs": ["u32"]
     }
   },
   {
@@ -592,9 +562,7 @@
           "type_": "address"
         }
       ],
-      "outputs": [
-        "u32"
-      ]
+      "outputs": ["u32"]
     }
   },
   {
@@ -608,9 +576,7 @@
           "type_": "address"
         }
       ],
-      "outputs": [
-        "u32"
-      ]
+      "outputs": ["u32"]
     }
   },
   {
@@ -632,9 +598,7 @@
       "doc": "",
       "name": "get_whitelister",
       "inputs": [],
-      "outputs": [
-        "address"
-      ]
+      "outputs": ["address"]
     }
   },
   {
@@ -703,9 +667,7 @@
       "doc": "",
       "name": "get_vault",
       "inputs": [],
-      "outputs": [
-        "option"
-      ]
+      "outputs": ["option"]
     }
   },
   {
@@ -713,9 +675,7 @@
       "doc": "",
       "name": "get_all_projects_with_archived",
       "inputs": [],
-      "outputs": [
-        "vec"
-      ]
+      "outputs": ["vec"]
     }
   },
   {
@@ -743,9 +703,7 @@
           "type_": "u32"
         }
       ],
-      "outputs": [
-        "udt"
-      ]
+      "outputs": ["udt"]
     }
   },
   {
@@ -764,9 +722,7 @@
           "type_": "vec"
         }
       ],
-      "outputs": [
-        "u32"
-      ]
+      "outputs": ["u32"]
     }
   },
   {
@@ -790,9 +746,7 @@
       "doc": "",
       "name": "is_paused",
       "inputs": [],
-      "outputs": [
-        "bool"
-      ]
+      "outputs": ["bool"]
     }
   },
   {
@@ -814,9 +768,7 @@
       "doc": "",
       "name": "get_emergency_admin",
       "inputs": [],
-      "outputs": [
-        "option"
-      ]
+      "outputs": ["option"]
     }
   },
   {
@@ -852,9 +804,7 @@
       "doc": "",
       "name": "health_check",
       "inputs": [],
-      "outputs": [
-        "udt"
-      ]
+      "outputs": ["udt"]
     }
   },
   {
@@ -862,9 +812,7 @@
       "doc": "",
       "name": "state_version",
       "inputs": [],
-      "outputs": [
-        "u32"
-      ]
+      "outputs": ["u32"]
     }
   },
   {
@@ -872,9 +820,7 @@
       "doc": "",
       "name": "stored_state_version",
       "inputs": [],
-      "outputs": [
-        "u32"
-      ]
+      "outputs": ["u32"]
     }
   },
   {
@@ -888,9 +834,7 @@
           "type_": "u32"
         }
       ],
-      "outputs": [
-        "u32"
-      ]
+      "outputs": ["u32"]
     }
   },
   {
