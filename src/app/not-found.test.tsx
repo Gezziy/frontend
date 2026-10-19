@@ -5,7 +5,7 @@ import NotFound from './not-found'
 describe('NotFound page', () => {
   it('renders 404 message and Back to Heliobond link with primary button tokens (#709)', () => {
     render(<NotFound />)
-    expect(screen.getByText('Lost in orbit.')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Page not found' })).toBeInTheDocument()
     const link = screen.getByRole('link', { name: 'Back to Heliobond' })
     expect(link).toBeInTheDocument()
     expect(link).toHaveAttribute('href', '/')
