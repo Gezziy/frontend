@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from 'next'
 import { headers } from 'next/headers'
-import { getLocale, getMessages } from 'next-intl/server'
+import { getLocale, getMessages, getTranslations } from 'next-intl/server'
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 import { Providers } from './providers'
 import { fontVariables } from '../theme/fonts'
 import { LocaleProvider, type Messages } from '../i18n/LocaleProvider'
-import { type Locale, RTL_LOCALES } from '../i18n/config'
+import { type Locale, RTL_LOCALES, ogLocale } from '../i18n/config'
 import { THEME_SCRIPT } from '../theme/themeScript'
 import { CANONICAL_ORIGIN, TITLE_TEMPLATE } from '../lib/routeMetadata'
 import '../styles/index.css'
@@ -14,7 +14,7 @@ import '../styles/index.css'
 const TopBar = dynamic(() => import('../shell/TopBar').then((m) => m.TopBar))
 const Footer = dynamic(() => import('../shell/Footer').then((m) => m.Footer))
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   // Resolves the relative OpenGraph / Twitter image and icon paths below into
   // absolute URLs, using the same origin as robots.txt and sitemap.xml (#656).
   metadataBase: new URL(CANONICAL_ORIGIN),
@@ -47,7 +47,6 @@ export const metadata: Metadata = {
         alt: 'Heliobond preview card',
       },
     ],
-    locale: 'en_US',
     type: 'website',
   },
   twitter: {
@@ -57,6 +56,15 @@ export const metadata: Metadata = {
       'Own a piece of the energy transition. From one dollar. A transparent pool funding verified green projects on Stellar.',
     images: ['/assets/og-image.png'],
   },
+}
+
+/** Resolved per request so `og:locale` follows the active locale (#816). */
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale()
+  return {
+    ...baseMetadata,
+    openGraph: { ...baseMetadata.openGraph, locale: ogLocale(locale) },
+  }
 }
 
 export const viewport: Viewport = {
@@ -74,6 +82,7 @@ export const viewport: Viewport = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const locale = await getLocale()
   const messages = await getMessages()
+  const t = await getTranslations('Shell')
   // Per-request CSP nonce set by src/proxy.ts (#601); the inline theme script needs it.
   const nonce = (await headers()).get('x-nonce') ?? undefined
 
@@ -91,7 +100,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <LocaleProvider initialLocale={locale as Locale} initialMessages={messages as Messages}>
           <Providers>
             <a href="#main-content" className="hb-skip-link">
-              Skip to content
+              {t('skipToContent')}
             </a>
             <Suspense fallback={null}>
               <TopBar />
